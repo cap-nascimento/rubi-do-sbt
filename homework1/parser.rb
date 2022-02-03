@@ -3,9 +3,10 @@ def alpha_only?(str)
 end
 
 filename = "lista_chamada.txt"
-lista = File.read(filename, :encoding => "iso-8859-15")
+lista = File.read(filename, :encoding => "iso-8859-1")
 arr = lista.split('/')
 
+lista_parsed = File.open("lista_parsed.txt", "w")
 idx = 0
 while (idx < arr.length-1)
   cur = arr[idx]
@@ -18,9 +19,9 @@ while (idx < arr.length-1)
       break if !alpha_only?(str)
       name << str
     end
-    line = cur_arr[cur_arr.length-1] + "/" + nxt_arr[0] + "\t" + name.join(" ")
-    puts line
+    line = cur_arr[cur_arr.length-1] + "/" + nxt_arr[0] + "\t" + name.join(" ") + "\n"
+    lista_parsed.write(line)
   end
   idx += 1
 end
-
+lista_parsed.close()
