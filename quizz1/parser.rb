@@ -2,11 +2,11 @@ def alpha_only?(str)
   !!(str =~ /[a-zA-Z]/)
 end
 
-filename = "lista_chamada.txt"
+filename = "engsoft.txt"
 lista = File.read(filename, :encoding => "iso-8859-1")
 arr = lista.split('/')
 
-lista_parsed = File.open("lista_parsed.txt", "w")
+lista_parsed = File.open("output.txt", "w")
 idx = 0
 while (idx < arr.length-1)
   cur = arr[idx]
